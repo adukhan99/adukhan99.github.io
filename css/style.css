@@ -143,18 +143,8 @@ body {
 .profile-image {
   width: 150px;
   border-radius: 50%;
-  animation: bounce 1s infinite alternate;
 }
 
-@keyframes bounce {
-  from {
-    transform: translateY(0px);
-  }
-
-  to {
-    transform: translateY(-10px);
-  }
-}
 
 .division {
   width: 100%;
@@ -204,6 +194,30 @@ body {
   position: relative;
   top: 160px;
   left: 10px;
+}
+
+/* Back Button */
+.back-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--primary-color);
+  color: var(--text-color-two);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: var(--weight-semibold);
+  box-shadow: var(--shadow);
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.back-button .fa-arrow-left {
+  margin-right: 0.5rem;
 }
 
 /* Footer */
