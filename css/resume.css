@@ -1,0 +1,76 @@
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eeeeee;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+header p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    color: #666;
+}
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.section {
+    margin-bottom: 20px;
+}
+.section h2 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
+}
+.job, .education-item {
+    margin-bottom: 20px;
+}
+.job-title, .degree {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.company, .school {
+    font-style: italic;
+    color: #555;
+}
+.date {
+    float: right;
+    color: #777;
+}
+ul.highlights {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.skills-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+.skills-section li {
+    padding: 5px 0;
+}
+.skills-category {
+    font-weight: bold;
+}
