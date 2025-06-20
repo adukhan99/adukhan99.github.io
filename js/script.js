@@ -65,3 +65,8 @@ let myDate = document.querySelector("#datee");
 
 const yes = new Date().getFullYear();
 myDate.innerHTML = yes;
+
+//Make email useable
+var encEmail = "YWdkdWtoYW5AZ21haWwuY29t";
+const form = document.getElementById("contact");
+form.setAttribute("href", "mailto:".concat(atob(encEmail)));
