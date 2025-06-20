@@ -166,8 +166,8 @@ body {
 
 .project {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(250px, auto);
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: minmax(750px, auto);
   grid-gap: 0.9rem;
 }
 
@@ -192,7 +192,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
-  top: 160px;
+  top: 10px;
   left: 10px;
 }
 
