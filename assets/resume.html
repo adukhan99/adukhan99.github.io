@@ -2,25 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Alexander Dukhan</title>
-    <link rel="stylesheet" href="../css/resume.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="css/utilities.css" />
-    <header>
-    </header>
+    
+    <!-- Link -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../assets/favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../assets/favicon/android-chrome-512x512.png"
+    />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/resume.css" />
 </head>
 <body>
 
-    <div class="container">
-        <a href="#" onclick="history.back()" class="back-button">
-            <i class="fas fa-arrow-left"></i> Back
-        </a>
+    <header id="hero">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <h1 id="logo">
+            <a href="../index.html"
+              ><img src="../assets/logo.png" alt="Logo"
+            /></a>
+          </h1>
+          <!-- Navbar links -->
+          <ul class="nav-menu">
+            <li>
+              <a
+                class="nav-link btn btn-primary"
+                href="../index.html"
+                ><i class="fas fa-arrow-left"></i> HOME
+              </a>
+            </li>
 
-        <header>
-            <h1>Alexander Dukhan</h1>
-            <p>Ann Arbor, MI | (248) 404-0862 | <a href="mailto:agdukhan@umich.edu">agdukhan@umich.edu</a></p>
-        </header>
+            <!-- Toggle switch -->
+            <div class="theme-switch">
+              <input type="checkbox" id="switch" />
+              <label class="toggle-icons" for="switch">
+                <img class="moon" src="../assets/moon.svg" />
+                <img class="sun" src="../assets/sun.svg" />
+              </label>
+            </div>
+            <!-- Hamburger menu -->
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+      
+      <section class="header-container">
+        <h1>Alexander Dukhan</h1>
+        <div class="content-text">
+          <h2>Resume</h2>
+        </div>
+      </section>
+    </header>
+    
+    <section id="resume-content" class="project-container container">
+      <div class="content-text">
+        <p>Ann Arbor, MI | (248) 404-0862 | <a id="contact" href="#">agdukhan AT gmail DOT com</a></p>
+      </div>
 
         <section class="section">
             <h2>Summary</h2>
@@ -68,6 +147,13 @@
                 <li><span class="skills-category">Scientific Communication:</span> Microsoft and Google Office Software </li>
             </ul>
         </section>
-    </div>
+    </section>
+
+    <footer id="footer">
+      <div class="container">
+        <a id="contact" href="#">Send me an Email</a>
+      </div>
+    </footer>
+    <script src="../js/script.js?v=1"></script>
 </body>
 </html>
