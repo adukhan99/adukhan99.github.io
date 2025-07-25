@@ -64,9 +64,12 @@ if (currentTheme) {
 let myDate = document.querySelector("#datee");
 
 const yes = new Date().getFullYear();
-myDate.innerHTML = yes;
+if (myDate) {
+  myDate.innerHTML = yes;
+}
 
-//Make email useable
-var encEmail = "YWdkdWtoYW5AZ21haWwuY29t";
+var encEmail = "YWdkdWtoYW5AdW1pY2guZWR1"; // Base64 encoded agdukhan@umich.edu
 const form = document.getElementById("contact");
-form.setAttribute("href", "mailto:".concat(atob(encEmail)));
+if (form) {
+  form.setAttribute("href", "mailto:".concat(atob(encEmail)));
+}
