@@ -80,6 +80,11 @@ body {
   right: 0;
   z-index: 20;
   background: var(--bg-primary);
+  transition: box-shadow 0.3s ease-in-out; /* Added transition for shadow */
+}
+
+.navbar.scrolled {
+  box-shadow: var(--shadow); /* Apply shadow when scrolled */
 }
 
 .navbar .container {
@@ -167,7 +172,7 @@ body {
 .project {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-auto-rows: minmax(750px, auto);
+  grid-auto-rows: minmax(300px, auto); /* Adjusted for better responsiveness */
   grid-gap: 0.9rem;
 }
 
@@ -184,7 +189,7 @@ body {
   justify-content: space-between;
   opacity: 0;
   position: relative;
-  transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out, transform 0.3s ease; /* Added transform for scale effect */
 }
 
 .project-bio {
@@ -266,7 +271,7 @@ body {
 @media (max-width: 1000px) {
   .project {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* More flexible grid */
   }
 }
 
