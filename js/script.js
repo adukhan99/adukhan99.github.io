@@ -1,75 +1,67 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
+const navLinks = document.querySelectorAll(".nav-link");
 
-hamburger.addEventListener("click", mobileMenu);
+if (hamburger && navMenu) {
+  const closeMenu = () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+    hamburger.setAttribute("aria-expanded", "false");
+  };
 
-function mobileMenu() {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
+  hamburger.addEventListener("click", () => {
+    const isActive = hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    hamburger.setAttribute("aria-expanded", String(isActive));
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
 }
 
-// Close navbar when link is clicked
-const navLink = document.querySelectorAll(".nav-link");
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const root = document.documentElement;
 
-navLink.forEach((n) => n.addEventListener("click", closeMenu));
+if (toggleSwitch) {
+  const currentTheme = localStorage.getItem("theme");
 
-function closeMenu() {
-  hamburger.classList.remove("active");
-  navMenu.classList.remove("active");
-}
-
-// Event Listeners: Handling toggle event
-const toggleSwitch = document.querySelector(
-  '.theme-switch input[type="checkbox"]'
-);
-
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
+  if (currentTheme) {
+    root.setAttribute("data-theme", currentTheme);
+    toggleSwitch.checked = currentTheme === "dark";
   }
+
+  toggleSwitch.addEventListener("change", (event) => {
+    const theme = event.target.checked ? "dark" : "light";
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  });
 }
 
-toggleSwitch.addEventListener("change", switchTheme, false);
+const emailLinks = document.querySelectorAll("[data-email-link='true']");
+const encodedEmail = "YWdkdWtoYW5AZ21haWwuY29t";
 
-//  Store color theme for future visits
+emailLinks.forEach((link) => {
+  link.setAttribute("href", `mailto:${atob(encodedEmail)}`);
+});
 
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark"); //add this
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light"); //add this
-  }
+const navbar = document.querySelector(".navbar");
+if (navbar) {
+  const setNavbarState = () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 8);
+  };
+
+  setNavbarState();
+  window.addEventListener("scroll", setNavbarState, { passive: true });
 }
 
-// Save user preference on load
-
-const currentTheme = localStorage.getItem("theme")
-  ? localStorage.getItem("theme")
-  : null;
-
-if (currentTheme) {
-  document.documentElement.setAttribute("data-theme", currentTheme);
-
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true;
-  }
-}
-
-//Adding date
-
-let myDate = document.querySelector("#datee");
-
-const yes = new Date().getFullYear();
-if (myDate) {
-  myDate.innerHTML = yes;
-}
-
-var encEmail = "YWdkdWtoYW5AdW1pY2guZWR1"; // Base64 encoded agdukhan@umich.edu
-const form = document.getElementById("contact");
-if (form) {
-  form.setAttribute("href", "mailto:".concat(atob(encEmail)));
+const yearEl = document.querySelector("#datee");
+if (yearEl) {
+  yearEl.textContent = String(new Date().getFullYear());
 }

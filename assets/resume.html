@@ -41,19 +41,19 @@
 
           <!-- Toggle switch -->
           <div class="theme-switch">
-            <input type="checkbox" id="switch" />
+            <input type="checkbox" id="switch" aria-label="Toggle color theme" />
             <label class="toggle-icons" for="switch">
-              <img class="moon" src="../assets/moon.svg" loading="lazy" />
-              <img class="sun" src="../assets/sun.svg" loading="lazy" />
+              <img class="moon" src="../assets/moon.svg" alt="Dark mode" loading="lazy" />
+              <img class="sun" src="../assets/sun.svg" alt="Light mode" loading="lazy" />
             </label>
           </div>
           <!-- Hamburger menu -->
         </ul>
-        <div class="hamburger">
+        <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
-        </div>
+        </button>
       </div>
     </nav>
 
@@ -67,7 +67,7 @@
 
   <section id="resume-content" class="project-container container">
     <div class="content-text">
-      <p>York, UK | +1 (248) 404-0862 | <a id="contact" href="#">agdukhan AT gmail DOT com</a></p>
+      <p>York, UK | +1 (248) 404-0862 | <a data-email-link="true" href="#">agdukhan AT gmail DOT com</a></p>
     </div>
 
     <section class="section">
@@ -130,7 +130,7 @@
 
   <footer id="footer">
     <div class="container">
-      <a id="contact" href="#">Send me an Email</a>
+      <a data-email-link="true" href="#">Send me an Email</a>
     </div>
   </footer>
   <script src="../js/script.js?v=1"></script>

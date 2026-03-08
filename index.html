@@ -5,10 +5,12 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexander Dukhan | Computational Biophysics</title>
+  <meta name="description"
+    content="Alexander Dukhan is a computational biophysicist building molecular simulations and analysis workflows to uncover mechanisms in living systems." />
 
-  <!-- Link -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-chrome-192x192.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/android-chrome-512x512.png" />
@@ -22,149 +24,154 @@
 
 <body>
   <header id="hero">
-    <!-- Navbar -->
     <nav class="navbar">
       <div class="container">
-        <!-- Logo -->
         <h1 id="logo">
-          <a href="./index.html"><img src="./assets/logo.png" alt="Logo" loading="lazy" /></a>
+          <a href="./index.html"><img src="./assets/logo.png" alt="Alexander Dukhan logo" loading="lazy" /></a>
         </h1>
-        <!-- Navbar links -->
+
         <ul class="nav-menu">
           <li>
-            <a class="nav-link btn btn-primary" href="./assets/resume.html">RESUME <i
-                class="fas fa-arrow-right"></i></a>
+            <a class="nav-link btn btn-primary" href="./assets/resume.html">Resume <i class="fas fa-arrow-right"></i></a>
+          </li>
+          <li>
+            <a class="nav-link btn btn-outline" href="#projects">Research</a>
           </li>
 
-          <!-- Toggle switch -->
-          <div class="theme-switch">
-            <input type="checkbox" id="switch" />
-            <label class="toggle-icons" for="switch">
-              <img class="moon" src="./assets/moon.svg" loading="lazy" />
-              <img class="sun" src="./assets/sun.svg" loading="lazy" />
-            </label>
-          </div>
-          <!-- Hamburger menu -->
+          <li class="theme-switch-wrap">
+            <div class="theme-switch">
+              <input type="checkbox" id="switch" aria-label="Toggle color theme" />
+              <label class="toggle-icons" for="switch">
+                <img class="moon" src="./assets/moon.svg" alt="Dark mode" loading="lazy" />
+                <img class="sun" src="./assets/sun.svg" alt="Light mode" loading="lazy" />
+              </label>
+            </div>
+          </li>
         </ul>
-        <div class="hamburger">
+
+        <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
-        </div>
+        </button>
       </div>
     </nav>
 
-    <section class="header-container">
+    <section class="header-container container">
+      <p class="eyebrow">M.Sc. Physics by Research | University of York</p>
       <h1>Alexander Dukhan</h1>
 
       <div class="content-text">
         <h2>Simulating tomorrow's discoveries today.</h2>
-
         <p>
-          A computational biophysicist modelling matter
-          to achieve novel insights into the fundamental physics
-          of the living world.
+          Computational biophysicist modeling matter to uncover mechanism-level insights
+          into living systems, with experience spanning molecular dynamics,
+          statistical analysis, and scientific software tooling.
         </p>
       </div>
-      <a href="https://www.linkedin.com/in/alexander-dukhan-191574250/" class="btn btn-secondary"
-        target="_blank">Connect With Me</a>
+
+      <div class="hero-cta-row">
+        <a href="https://www.linkedin.com/in/alexander-dukhan-191574250/" class="btn btn-secondary" target="_blank"
+          rel="noopener noreferrer">Connect on LinkedIn</a>
+        <a href="#" class="btn btn-outline" data-email-link="true">Email Me</a>
+      </div>
+
+      <ul class="impact-pills">
+        <li>2+ years of active research employment</li>
+        <li>Wet-lab and computational fluency</li>
+        <li>HPC and simulation workflow development</li>
+      </ul>
     </section>
   </header>
 
-  <!-- Projects -->
   <section id="projects" class="project-container container">
     <div class="division"></div>
     <div class="content-text">
-      <h2>Research</h2>
-      <p>What follows are personal and academic research projects.
-        Click the globe for the relevant publication when applicable.</p>
+      <h2>Selected Research and Engineering Work</h2>
+      <p>Personal and academic projects in molecular biophysics, computational chemistry, and simulation tooling.</p>
     </div>
 
     <article class="project">
-
-      <!-- Project 1 -->
-      <div href="" class="card">
+      <section class="card project-card project-card--nucleoid">
         <div class="project-info">
           <div class="project-bio">
             <h3>Prokaryotic Nucleoid Associated Proteins and the ProU70 Promoter Sequence</h3>
             <p>University of York, Noy Lab, Amber, Python, R</p>
-          </div>
-
-          <div class="project-link">
-            <!-- <a href="#" target="_blank"><i class="fas fa-globe"></i></a> -->
+            <p class="project-status">Research in progress</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Project 2 -->
-      <div href="" class="card">
+      <section class="card project-card project-card--tubulin">
         <div class="project-info">
           <div class="project-bio">
             <h3>Tubulin Isotype Variation and Cancer Cell Drug Resistance</h3>
             <p>University of Michigan, Sept Lab, NAMD, VMD, R</p>
-          </div>
-
-          <div class="project-link">
-            <!--  <a href="#" target="_blank"><i class="fas fa-globe"></i></a> -->
+            <p class="project-status">Academic research</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Project 3 -->
-      <div href="" class="card">
+      <section class="card project-card project-card--actin">
         <div class="project-info">
           <div class="project-bio">
             <h3>Binding Affinities of Membrane Proximal Actin Probes</h3>
             <p>University of Michigan, Veatch Lab, NAMD, AlphaFold, CHARMM-GUI, R</p>
-          </div>
-
-          <div class="project-link">
-            <!--  <a href="#" target="_blank"><i class="fas fa-globe"></i></a> -->
+            <p class="project-status">Academic research</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Project 4 -->
-      <div href="" class="card">
+      <section class="card project-card project-card--qgp">
         <div class="project-info">
           <div class="project-bio">
             <h3>Simulating Hadron Collisions on the QGP Boundary</h3>
             <p>Personal Project, SMASH, CERN ROOT</p>
-          </div>
-
-          <div class="project-link">
-            <!--  <a href="#" target="_blank"><i class="fas fa-globe"></i></a> -->
+            <p class="project-status">Independent simulation study</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Project 5 -->
-      <div href="" class="card">
+      <section class="card project-card project-card--slurmgen">
         <div class="project-info">
           <div class="project-bio">
-            <h3>SLURMGEN - A type-checked SBATCH header generator</h3>
-            <p>Personal Project, OCaml, Open Source, HPC utility</p>
+            <h3>SLURMGEN - A Type-Checked SBATCH Header Generator</h3>
+            <p>Personal Project, OCaml, Open Source, HPC Utility</p>
           </div>
 
           <div class="project-link">
-            <a href="https://github.com/adukhan99/slurmgen" target="_blank"><i class="fas fa-globe"></i></a>
+            <a href="https://github.com/adukhan99/slurmgen" target="_blank" rel="noopener noreferrer"
+              aria-label="Open slurmgen on GitHub"><i class="fas fa-globe"></i></a>
           </div>
         </div>
-      </div>
-
+      </section>
     </article>
-    <!--
-      <a href="#" class="btn btn-secondary"
-        target="_blank" >See More <i class="fas fa-arrow-right"></i
-      ></a>
--->
+  </section>
+
+  <section class="container social-proof">
+    <div class="content-text">
+      <h2>Links</h2>
+    </div>
+    <div class="social-icons">
+      <a href="https://github.com/adukhan99" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <img src="assets/github-icon.svg" alt="GitHub" loading="lazy" />
+      </a>
+      <a href="https://www.linkedin.com/in/alexander-dukhan-191574250/" target="_blank" rel="noopener noreferrer"
+        aria-label="LinkedIn">
+        <img src="assets/linkedin-icon.svg" alt="LinkedIn" loading="lazy" />
+      </a>
+      <a href="#" data-email-link="true" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
   </section>
 
   <footer id="footer">
     <div class="container">
-      <a id="contact" href="">Send me an Email</a>
+      <a data-email-link="true" href="#">Send me an Email</a>
     </div>
   </footer>
+
   <script src="js/script.js"></script>
 </body>
 
