@@ -63,7 +63,7 @@ h2::selection {
   gap: 0.15rem;
 }
 
-.toggle-icons > img {
+.toggle-icons>img {
   transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   width: 28px;
 }
@@ -72,11 +72,11 @@ h2::selection {
   transform: rotate(10deg);
 }
 
-#switch:checked + .toggle-icons .moon {
+#switch:checked+.toggle-icons .moon {
   transform: rotate(250deg);
 }
 
-#switch:checked + .toggle-icons .sun {
+#switch:checked+.toggle-icons .sun {
   transform: rotate(100deg);
 }
 
@@ -86,7 +86,6 @@ h2::selection {
   color: #ffffff;
   border-radius: 10px;
   transition: 0.3s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card a {
