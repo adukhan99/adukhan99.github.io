@@ -1,0 +1,114 @@
+
+/* Resume specific styles that complement the main style.css */
+
+/* Resume content section */
+#resume-content {
+    margin-top: 1rem;
+}
+
+#resume-content .section {
+    margin-bottom: 2rem;
+}
+/* Resume content text styling */
+#resume-content .content-text {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+#resume-content .content-text p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+/* Resume specific links */
+#resume-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+#resume-content a:hover {
+    text-decoration: underline;
+}
+
+/* Custom header styling for resume page */
+.header-container {
+    margin-top: 4rem;
+}
+
+.header-container h1 {
+    font-size: 2.2rem;
+}
+
+.header-container h2 {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+}
+.section {
+    margin-bottom: 0.5rem;
+}
+.section h2 {
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.8em;
+    color: var(--text-color);
+    text-align: left;
+}
+.job, .education-item {
+    margin-bottom: 1rem;
+}
+.job-title, .degree {
+    font-weight: var(--weight-semibold);
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+.company, .school {
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+.date {
+    float: right;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+ul.highlights {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: var(--text-color);
+}
+.skills-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+.skills-section li {
+    padding: 8px 0;
+    color: var(--text-color);
+}
+.skills-category {
+    font-weight: var(--weight-semibold);
+    color: var(--primary-color);
+}
+
+/* Media queries for responsive resume */
+@media (max-width: 768px) {
+    #resume-content {
+        margin-top: 1rem;
+    }
+    
+    .section h2 {
+        font-size: 1.5em;
+    }
+    
+    .date {
+        float: none;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .header-container h1 {
+        font-size: 1.8rem;
+    }
+    
+    .header-container h2 {
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,110 @@
+.container {
+  max-width: var(--width-medium);
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+h1::selection,
+h2::selection {
+  color: #111;
+  background: var(--primary-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.15rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.78rem;
+  font-weight: var(--weight-semibold);
+  transition: 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border-color: var(--border-color);
+  background: transparent;
+  color: var(--text-color);
+}
+
+.btn-outline:hover {
+  border-color: color-mix(in srgb, var(--primary-color) 75%, var(--border-color));
+  background: var(--bg-soft);
+}
+
+#switch {
+  display: none;
+}
+
+.toggle-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.15rem;
+}
+
+.toggle-icons>img {
+  transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  width: 28px;
+}
+
+.moon {
+  transform: rotate(10deg);
+}
+
+#switch:checked+.toggle-icons .moon {
+  transform: rotate(250deg);
+}
+
+#switch:checked+.toggle-icons .sun {
+  transform: rotate(100deg);
+}
+
+.card {
+  padding: 1rem;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.card a {
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+  font-size: 1.1rem;
+}
+
+.card a:hover {
+  color: var(--primary-color);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.9rem 1rem;
+  }
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Alexander Dukhan</title>
+
+  <!-- Link -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/android-chrome-512x512.png" />
+  <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico" />
+  <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
+  <link rel="stylesheet" href="../css/resume.css" />
+</head>
+
+<body>
+
+  <header id="hero">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <!-- Logo -->
+        <h1 id="logo">
+          <a href="../index.html"><img src="../assets/logo.png" alt="Logo" loading="lazy" /></a>
+        </h1>
+        <!-- Navbar links -->
+        <ul class="nav-menu">
+          <li>
+            <a class="nav-link btn btn-primary" href="../index.html"><i class="fas fa-arrow-left"></i> HOME
+            </a>
+          </li>
+
+          <!-- Toggle switch -->
+          <div class="theme-switch">
+            <input type="checkbox" id="switch" aria-label="Toggle color theme" />
+            <label class="toggle-icons" for="switch">
+              <img class="moon" src="../assets/moon.svg" alt="Dark mode" loading="lazy" />
+              <img class="sun" src="../assets/sun.svg" alt="Light mode" loading="lazy" />
+            </label>
+          </div>
+          <!-- Hamburger menu -->
+        </ul>
+        <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <section class="header-container">
+      <h1>Alexander Dukhan</h1>
+      <div class="content-text">
+        <h2>Resume</h2>
+      </div>
+    </section>
+  </header>
+
+  <section id="resume-content" class="project-container container">
+    <div class="content-text">
+      <p>York, UK | +1 (248) 404-0862 | <a data-email-link="true" href="#">agdukhan AT gmail DOT com</a></p>
+    </div>
+
+    <section class="section">
+      <h2>Summary</h2>
+      <p>Computational biophysicist with expertise in both wet lab and computational
+        techniques and a passion for mechanistic investigation. </p>
+    </section>
+
+    <section class="section">
+      <h2>Education</h2>
+      <div class="education-item">
+        <p><span class="degree">Postgraduate</span><span class="date">9/2025 - Present</span></p>
+        <p class="school">University of York, York, UK</p>
+        <p>M.Sc. in Physics by Research under Dr. Agnes Noy and Dr. Mark Leake. </p>
+      </div>
+      <div class="education-item">
+        <p><span class="degree">Undergraduate</span><span class="date">8/2022 - 5/2025</span></p>
+        <p class="school">University of Michigan, Ann Arbor, MI</p>
+        <p>B.Sc. in Biochemistry, completed in three years alongside two years of active research employment. </p>
+      </div>
+      <div class="education-item">
+        <p><span class="degree">Secondary</span><span class="date">9/2018 - 5/2022</span></p>
+        <p class="school">Royal Oak High School, Royal Oak, MI</p>
+        <p>Graduated with high honors, 4.2 GPA, and 30 credits completed towards a Bachelor's degree.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Employment</h2>
+      <div class="job">
+        <p><span class="job-title">Researcher</span><span class="date">8/2023 - 8/2025</span></p>
+        <p class="company">University of Michigan, Ann Arbor, MI</p>
+        <ul>
+          <li>Two years of research experience, currently employed in both the Sept and Veatch labs conducting molecular
+            dynamics. </li>
+        </ul>
+      </div>
+      <div class="job">
+        <p><span class="job-title">Development Director</span><span class="date">10/2022 - Present</span></p>
+        <p class="company">Great Lakes Invitational Conference Association</p>
+        <ul>
+          <li>Development director and website manager assisting this 501(c)(3) with grant writing and outreach as well
+            as the technology sphere. </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section skills-section">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><span class="skills-category">Data Analysis and Visualization:</span> R, Python, Fortran, Rust, OCaml,
+          C/C++, Chapel </li>
+        <li><span class="skills-category">Molecular Dynamics:</span> NAMD/VMD, Amber/AmberTools, GROMACS </li>
+        <li><span class="skills-category">Wet-lab Biochemistry:</span> Cell culture, flow cytometry, STORM, FRET </li>
+        <li><span class="skills-category">Scientific Communication:</span> LaTeX, Overleaf, Microsoft/Google Office
+          Software </li>
+      </ul>
+    </section>
+  </section>
+
+  <footer id="footer">
+    <div class="container">
+      <a data-email-link="true" href="#">Send me an Email</a>
+    </div>
+  </footer>
+  <script src="../js/script.js?v=1"></script>
+</body>
+
+</html>
