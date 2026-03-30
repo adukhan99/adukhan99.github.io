@@ -3,7 +3,7 @@ name: Build and Deploy OCaml to GitHub Pages
 on:
   push:
     branches:
-      - main # Change to 'master' if your default branch is named that
+      - master # Change to 'master' if your default branch is named that
 
 permissions:
   contents: read
