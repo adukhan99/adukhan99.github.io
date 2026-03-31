@@ -1,6 +1,8 @@
 (executable
  (name main)
  (modes js)
- (preprocess (pps js_of_ocaml-ppx))
+ (preprocess
+  (pps js_of_ocaml-ppx))
  (libraries js_of_ocaml brr)
- (js_of_ocaml (flags --opt=3 --pretty)))
+ (js_of_ocaml
+  (flags --opt=3 --pretty)))

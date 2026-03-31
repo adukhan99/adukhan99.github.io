@@ -198,5 +198,6 @@ let () =
       render_footer ()
     ];
     setup_logic ();
+    Physics.start ();
     Js._true
   )
