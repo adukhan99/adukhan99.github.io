@@ -1,8 +1,26 @@
+(library
+ (name logic)
+ (modules logic)
+ (preprocess
+  (pps js_of_ocaml-ppx))
+ (libraries js_of_ocaml brr))
+
 (executable
  (name main)
+ (modules main physics)
  (modes js)
  (preprocess
   (pps js_of_ocaml-ppx))
- (libraries js_of_ocaml brr)
+ (libraries js_of_ocaml brr logic)
+ (js_of_ocaml
+  (flags --opt=3 --pretty)))
+
+(executable
+ (name resume)
+ (modules resume)
+ (modes js)
+ (preprocess
+  (pps js_of_ocaml-ppx))
+ (libraries js_of_ocaml logic)
  (js_of_ocaml
   (flags --opt=3 --pretty)))

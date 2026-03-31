@@ -41,6 +41,7 @@
 html {
   font-size: 100%;
   scroll-behavior: smooth;
+  background: var(--bg-primary);
 }
 
 * {
@@ -59,10 +60,23 @@ a {
 }
 
 body {
-  background: var(--bg-primary);
+  background: transparent;
   color: var(--text-color);
   font-family: "Raleway", sans-serif;
   line-height: 1.55;
+  position: relative;
+}
+
+#bg-canvas {
+  z-index: 0;
+}
+
+#hero,
+#projects,
+.social-proof,
+#footer {
+  position: relative;
+  z-index: 1;
 }
 
 .navbar {

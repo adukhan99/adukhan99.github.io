@@ -13,7 +13,7 @@ let create_canvas () =
   set style_jv "left" (of_string "0");
   set style_jv "width" (of_string "100%");
   set style_jv "height" (of_string "100%");
-  set style_jv "zIndex" (of_string "-1");
+  set style_jv "zIndex" (of_string "0");
   set style_jv "pointerEvents" (of_string "none");
   let body = Document.body G.document in
   El.append_children body [el];

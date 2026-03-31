@@ -27,12 +27,15 @@ jobs:
           opam install dune js_of_ocaml js_of_ocaml-ppx brr --yes
 
       - name: Build JS
-        run: opam exec -- dune build src/main.bc.js
+        run: |
+          opam exec -- dune build src/main.bc.js
+          opam exec -- dune build src/resume.bc.js
 
       - name: Prepare Deployment Artifacts
         run: |
-          mkdir -p dist/js
+          mkdir -p dist/js dist/assets
           cp _build/default/src/main.bc.js dist/js/script.js
+          cp _build/default/src/resume.bc.js dist/js/resume.bc.js
           cp index.html dist/
           if [ -d "css" ]; then cp -r css dist/; fi
           if [ -d "assets" ]; then cp -r assets dist/; fi
