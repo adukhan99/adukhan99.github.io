@@ -2,4 +2,5 @@
  (name main)
  (modes js)
  (preprocess (pps js_of_ocaml-ppx))
- (libraries js_of_ocaml brr))
+ (libraries js_of_ocaml brr)
+ (js_of_ocaml (flags --opt=3 --pretty --source-map-inline)))
