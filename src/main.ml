@@ -1,7 +1,6 @@
 open Brr
 open Js_of_ocaml
 
-(* Helper to create elements with attributes and children *)
 let el name ?(at = []) ?(inner = []) () =
   let e = El.v (Jstr.v name) inner in
   List.iter (fun (k, v) -> El.set_at (Jstr.v k) (Some (Jstr.v v)) e) at;
@@ -9,7 +8,6 @@ let el name ?(at = []) ?(inner = []) () =
 
 let txt s = El.txt (Jstr.v s)
 
-(* Porting the original layout into OCaml/Brr *)
 let render_hero () =
   let logo_img = el "img" ~at:[("src", "./assets/logo.png"); ("alt", "Alexander Dukhan logo"); ("loading", "lazy")] () in
   let logo_a = el "a" ~at:[("href", "./index.html")] ~inner:[logo_img] () in
@@ -79,7 +77,6 @@ let render_projects () =
     ] ()
   ) projects_data in
 
-  (* Slurmgen project with link *)
   let slurmgen = el "section" ~at:[("class", "card project-card project-card--slurmgen")] ~inner:[
     el "div" ~at:[("class", "project-info")] ~inner:[
       el "div" ~at:[("class", "project-bio")] ~inner:[
@@ -122,12 +119,10 @@ let render_footer () =
     ] ()
   ] ()
 
-(* Logic port (hamburger, theme, etc.) *)
 let setup_logic () =
   let doc = Dom_html.document in
   let get_el sel = Js.Opt.to_option (doc##querySelector (Js.string sel)) in
 
-  (* Hamburger *)
   let hamburger = get_el ".hamburger" in
   let nav_menu = get_el ".nav-menu" in
   (match hamburger, nav_menu with
@@ -153,7 +148,6 @@ let setup_logic () =
        )
    | _ -> ());
 
-  (* Theme Switcher *)
   let switch = get_el ".theme-switch input[type=\"checkbox\"]" in
   let root = doc##.documentElement in
   (match switch with
@@ -176,14 +170,12 @@ let setup_logic () =
        )
    | None -> ());
 
-  (* Email Links *)
   let email_links = doc##querySelectorAll (Js.string "[data-email-link='true']") in
   let decoded = Js.to_string (Dom_html.window##atob (Js.string "YWdkdWtoYW5AZ21haWwuY29t")) in
   for i = 0 to email_links##.length - 1 do
     Js.Opt.iter (email_links##item i) (fun l -> l##setAttribute (Js.string "href") (Js.string ("mailto:" ^ decoded)))
   done;
 
-  (* Navbar Scroll *)
   let navbar = get_el ".navbar" in
   (match navbar with
    | Some n ->

@@ -2,14 +2,11 @@
 _build/
 *.install
 *.bc.js
+*.exe.js
 
-# Ignore the compiled script if you are using GitHub Actions
-# But since you are using it locally for now, let's keep it until your Action is ready.
-# js/script.js
-
-# Node/npm if you had any
-node_modules/
-npm-debug.log
+# Deployment & Build targets
+dist/
+/js/script.js
 
 # OS files
 .DS_Store

@@ -3,7 +3,7 @@ name: Build and Deploy OCaml to GitHub Pages
 on:
   push:
     branches:
-      - master # Change to 'master' if your default branch is named that
+      - master
 
 permissions:
   contents: read
@@ -34,7 +34,6 @@ jobs:
           mkdir -p dist/js
           cp _build/default/src/main.exe.js dist/js/script.js
           cp index.html dist/
-          # Copy static folders
           if [ -d "css" ]; then cp -r css dist/; fi
           if [ -d "assets" ]; then cp -r assets dist/; fi
 
