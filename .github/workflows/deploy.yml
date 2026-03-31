@@ -37,6 +37,7 @@ jobs:
           cp _build/default/src/main.bc.js dist/js/script.js
           cp _build/default/src/resume.bc.js dist/js/resume.bc.js
           cp index.html dist/
+          cp resume.html dist/
           if [ -d "css" ]; then cp -r css dist/; fi
           if [ -d "assets" ]; then cp -r assets dist/; fi
 

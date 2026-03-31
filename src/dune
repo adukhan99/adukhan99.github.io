@@ -24,3 +24,4 @@
  (libraries js_of_ocaml logic)
  (js_of_ocaml
   (flags --opt=3 --pretty)))
+

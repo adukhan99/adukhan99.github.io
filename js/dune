@@ -1,0 +1,15 @@
+(rule
+ (mode promote)
+ (target script.js)
+ (deps ../src/main.bc.js)
+ (action (copy %{deps} %{target})))
+
+(rule
+ (mode promote)
+ (target resume.bc.js)
+ (deps ../src/resume.bc.js)
+ (action (copy %{deps} %{target})))
+
+(alias
+ (name default)
+ (deps script.js resume.bc.js))
