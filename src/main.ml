@@ -14,7 +14,7 @@ let render_hero () =
   let logo_h1 = el "h1" ~at:[("id", "logo")] ~inner:[logo_a] () in
 
   let nav_links = [
-    el "li" ~inner:[el "a" ~at:[("class", "nav-link btn btn-primary"); ("href", "./resume.html")]
+    el "li" ~inner:[el "a" ~at:[("class", "nav-link btn btn-primary"); ("href", "resume.html")]
                       ~inner:[txt "Resume "; el "i" ~at:[("class", "fas fa-arrow-right")] ()] ()] ();
     el "li" ~inner:[el "a" ~at:[("class", "nav-link btn btn-outline"); ("href", "#projects")]
                       ~inner:[txt "Research"] ()] ();
