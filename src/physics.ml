@@ -81,10 +81,13 @@ let start () =
            bonds := (i, j) :: !bonds;
            let p1 = particle_array.(i) in
            let p2 = particle_array.(j) in
+           let anchor = obj [|("x", of_float 0.0); ("y", of_float 0.0)|] in
            let params = call (get rapier "JointData") "spring" [| 
               of_float 80.0;
               of_float 1.0;
-              of_float 0.1
+              of_float 0.1;
+              anchor;
+              anchor
            |] in
            ignore (call world "createImpulseJoint" [| params; p1; p2; of_bool true |])
          end
