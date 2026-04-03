@@ -19,25 +19,28 @@ let create_canvas () =
   El.append_children body [el];
   canvas
 
-let start () =
-  let rapier = get global "RAPIER" in
-  let p = call rapier "init" [||] in
-  ignore (call p "then" [| repr (fun _ ->
-    let canvas = create_canvas () in
-    
-    let resize () =
-      let win = Id.to_jv G.window in
-      let w = to_int (get win "innerWidth") in
-      let h = to_int (get win "innerHeight") in
-      Canvas.set_w canvas w;
-      Canvas.set_h canvas h;
-    in
-    resize ();
-    
-    ignore (Ev.listen Ev.resize (fun _ -> resize ()) (Window.as_target G.window));
-    
-    let ctx = C2d.get_context canvas in
-    
+let setup_canvas canvas =
+  let resize () =
+    let win = Id.to_jv G.window in
+    let w = to_int (get win "innerWidth") in
+    let h = to_int (get win "innerHeight") in
+    Canvas.set_w canvas w;
+    Canvas.set_h canvas h;
+  in
+  resize ();
+  ignore (Ev.listen Ev.resize (fun _ -> resize ()) (Window.as_target G.window));
+  let ctx = C2d.get_context canvas in
+  (ctx, resize)
+
+let draw_status canvas ctx msg =
+  let w = float_of_int (Canvas.w canvas) in
+  let h = float_of_int (Canvas.h canvas) in
+  C2d.clear_rect ctx ~x:0. ~y:0. ~w ~h;
+  C2d.set_fill_style ctx (C2d.color (Jv.to_jstr (Jv.of_string "rgba(120, 120, 120, 0.9)")));
+  C2d.set_font ctx (Jv.to_jstr (Jv.of_string "13px Raleway, sans-serif"));
+  C2d.fill_text ctx (Jv.to_jstr (Jv.of_string msg)) ~x:18. ~y:28.
+
+let start_with_rapier rapier canvas ctx =
     let gravity = obj [|("x", of_float 0.0); ("y", of_float 0.0)|] in
     let world = new' (get rapier "World") [| gravity |] in
 
@@ -108,8 +111,8 @@ let start () =
       let is_dark = if is_none theme_val then false else to_string theme_val = "dark" in
       
       let color_rgb = if is_dark then "150, 200, 255" else "50, 100, 200" in
-      C2d.set_fill_style ctx (C2d.color (Id.of_jv (of_string ("rgba(" ^ color_rgb ^ ", 0.8)"))));
-      C2d.set_stroke_style ctx (C2d.color (Id.of_jv (of_string ("rgba(" ^ color_rgb ^ ", 0.2)"))));
+      C2d.set_fill_style ctx (C2d.color (Jv.to_jstr (Jv.of_string ("rgba(" ^ color_rgb ^ ", 0.8)"))));
+      C2d.set_stroke_style ctx (C2d.color (Jv.to_jstr (Jv.of_string ("rgba(" ^ color_rgb ^ ", 0.2)"))));
       C2d.set_line_width ctx 1.5;
 
       for i = 0 to num_particles - 1 do
@@ -161,4 +164,28 @@ let start () =
       ()
     in
     ignore (G.request_animation_frame step);
-  ) |])
+    ()
+
+let start () =
+  let canvas = create_canvas () in
+  let (ctx, _resize) = setup_canvas canvas in
+  draw_status canvas ctx "Loading physics background...";
+  let rapier = get global "RAPIER" in
+  if Jv.is_none rapier then (
+    Console.warn [Jv.to_jstr (Jv.of_string "RAPIER global not found; physics background disabled.")];
+    draw_status canvas ctx "Physics background disabled (RAPIER global missing)."
+  ) else
+    let init = get rapier "init" in
+    if Jv.is_none init then (
+      start_with_rapier rapier canvas ctx
+    ) else (
+      let p = call rapier "init" [||] in
+      ignore (call p "then" [| repr (fun _ -> start_with_rapier rapier canvas ctx) |]);
+      ignore (call p "catch" [| repr (fun err ->
+        Console.warn [
+          Jv.to_jstr (Jv.of_string "RAPIER.init() failed; physics background disabled.");
+          Jv.to_jstr err
+        ];
+        draw_status canvas ctx "Physics background disabled (RAPIER init failed).";
+      ) |])
+    )

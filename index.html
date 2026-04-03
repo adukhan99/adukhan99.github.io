@@ -20,7 +20,22 @@
     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/utilities.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@dimforge/rapier2d-compat@0.14.0/rapier2d-compat.js"></script>
+  <script>
+    (function () {
+      var primary = "https://cdn.jsdelivr.net/npm/@dimforge/rapier2d-compat@0.14.0/rapier2d-compat.js";
+      var fallback = "https://unpkg.com/@dimforge/rapier2d-compat@0.14.0/rapier2d-compat.js";
+      function load(src) {
+        var s = document.createElement("script");
+        s.src = src;
+        s.async = true;
+        s.onerror = function () {
+          if (src !== fallback) load(fallback);
+        };
+        document.head.appendChild(s);
+      }
+      load(primary);
+    })();
+  </script>
 </head>
 
 <body>
