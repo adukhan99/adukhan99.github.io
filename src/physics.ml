@@ -134,7 +134,7 @@ let start_with_rapier rapier canvas ctx =
              let dsq = (dx_mouse ** 2.0) +. (dy_mouse ** 2.0) in
              if dsq < 40000.0 && dsq > 1.0 then begin
                let dist = sqrt dsq in
-               let repel = 1000.0 /. dist in 
+               let repel = 5000.0 /. dist in 
                mut_fx := !mut_fx +. ((dx_mouse /. dist) *. repel);
                mut_fy := !mut_fy +. ((dy_mouse /. dist) *. repel);
              end
