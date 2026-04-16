@@ -90,13 +90,26 @@ let render_projects () =
     ] ()
   ] () in
 
+  let orchcaml = el "section" ~at:[("class", "card project-card project-card--orchcaml")] ~inner:[
+    el "div" ~at:[("class", "project-info")] ~inner:[
+      el "div" ~at:[("class", "project-bio")] ~inner:[
+        el "h3" ~inner:[txt "OrchCaml - An Agent Orchestration Framework"] ();
+        el "p" ~inner:[txt "Personal Project, OCaml, Open Source, AI"] ()
+      ] ();
+      el "div" ~at:[("class", "project-link")] ~inner:[
+        el "a" ~at:[("href", "https://github.com/adukhan99/orchcaml"); ("target", "_blank"); ("rel", "noopener noreferrer"); ("aria-label", "Open OrchCaml on GitHub")]
+          ~inner:[el "i" ~at:[("class", "fas fa-globe")] ()] ()
+      ] ()
+    ] ()
+  ] () in
+
   el "section" ~at:[("id", "projects"); ("class", "project-container container")] ~inner:[
     el "div" ~at:[("class", "division")] ();
     el "div" ~at:[("class", "content-text")] ~inner:[
       el "h2" ~inner:[txt "Selected Research and Engineering Work"] ();
       el "p" ~inner:[txt "Personal and academic projects in molecular biophysics, computational chemistry, and simulation tooling."] ()
     ] ();
-    el "article" ~at:[("class", "project")] ~inner:(project_cards @ [slurmgen]) ()
+    el "article" ~at:[("class", "project")] ~inner:(project_cards @ [slurmgen; orchcaml]) ()
   ] ()
 
 let render_social () =
