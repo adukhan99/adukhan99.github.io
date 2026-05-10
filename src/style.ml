@@ -1,3 +1,6 @@
+open Brr
+
+let style_css = {|
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800);
 
 :root {
@@ -298,23 +301,23 @@ body {
 }
 
 .card.project-card--nucleoid {
-  background: url(../assets/project/NAP.png) center center/cover;
+  background: url(./assets/project/NAP.png) center center/cover;
 }
 
 .card.project-card--tubulin {
-  background: url(../assets/project/tubulin.gif) center center/cover;
+  background: url(./assets/project/tubulin.gif) center center/cover;
 }
 
 .card.project-card--actin {
-  background: url(../assets/project/MPActs.gif) center center/cover;
+  background: url(./assets/project/MPActs.gif) center center/cover;
 }
 
 .card.project-card--qgp {
-  background: url(../assets/project/QGP.gif) center center/cover;
+  background: url(./assets/project/QGP.gif) center center/cover;
 }
 
 .card.project-card--slurmgen {
-  background: url(../assets/project/slurmgen.jpg) center center/cover;
+  background: url(./assets/project/slurmgen.jpg) center center/cover;
 }
 
 .social-proof {
@@ -459,3 +462,247 @@ body {
     width: 100%;
   }
 }
+|}
+
+let utilities_css = {|
+.container {
+  max-width: var(--width-medium);
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+h1::selection,
+h2::selection {
+  color: #111;
+  background: var(--primary-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.15rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.78rem;
+  font-weight: var(--weight-semibold);
+  transition: 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border-color: var(--border-color);
+  background: transparent;
+  color: var(--text-color);
+}
+
+.btn-outline:hover {
+  border-color: color-mix(in srgb, var(--primary-color) 75%, var(--border-color));
+  background: var(--bg-soft);
+}
+
+#switch {
+  display: none;
+}
+
+.toggle-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.15rem;
+}
+
+.toggle-icons>img {
+  transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  width: 28px;
+}
+
+.moon {
+  transform: rotate(10deg);
+}
+
+#switch:checked+.toggle-icons .moon {
+  transform: rotate(250deg);
+}
+
+#switch:checked+.toggle-icons .sun {
+  transform: rotate(100deg);
+}
+
+.card {
+  padding: 1rem;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.card a {
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+  font-size: 1.1rem;
+}
+
+.card a:hover {
+  color: var(--primary-color);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.9rem 1rem;
+  }
+}
+|}
+
+let resume_css = {|
+/* Resume specific styles that complement the main style.css */
+
+/* Resume content section */
+#resume-content {
+    margin-top: 1rem;
+}
+
+#resume-content .section {
+    margin-bottom: 2rem;
+}
+/* Resume content text styling */
+#resume-content .content-text {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+#resume-content .content-text p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+/* Resume specific links */
+#resume-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+#resume-content a:hover {
+    text-decoration: underline;
+}
+
+/* Custom header styling for resume page */
+.header-container {
+    margin-top: 4rem;
+}
+
+.header-container h1 {
+    font-size: 2.2rem;
+}
+
+.header-container h2 {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+}
+.section {
+    margin-bottom: 0.5rem;
+}
+.section h2 {
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.8em;
+    color: var(--text-color);
+    text-align: left;
+}
+.job, .education-item {
+    margin-bottom: 1rem;
+}
+.job-title, .degree {
+    font-weight: var(--weight-semibold);
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+.company, .school {
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+.date {
+    float: right;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+ul.highlights {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: var(--text-color);
+}
+.skills-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+.skills-section li {
+    padding: 8px 0;
+    color: var(--text-color);
+}
+.skills-category {
+    font-weight: var(--weight-semibold);
+    color: var(--primary-color);
+}
+
+/* Media queries for responsive resume */
+@media (max-width: 768px) {
+    #resume-content {
+        margin-top: 1rem;
+    }
+    
+    .section h2 {
+        font-size: 1.5em;
+    }
+    
+    .date {
+        float: none;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .header-container h1 {
+        font-size: 1.8rem;
+    }
+    
+    .header-container h2 {
+        font-size: 1.4rem;
+    }
+}
+|}
+
+let inject css_text =
+  let style = El.v (Jstr.v "style") [] in
+  El.set_prop (El.Prop.jstr (Jstr.v "innerText")) (Jstr.v css_text) style;
+  let head = Document.head G.document in
+  El.set_children head (style :: (El.children head))
+
+let inject_main () =
+  inject style_css;
+  inject utilities_css
+
+let inject_resume () =
+  inject_main ();
+  inject resume_css

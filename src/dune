@@ -1,6 +1,6 @@
 (library
  (name logic)
- (modules logic)
+ (modules logic style)
  (preprocess
   (pps js_of_ocaml-ppx))
  (libraries js_of_ocaml brr))

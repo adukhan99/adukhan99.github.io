@@ -1,5 +1,7 @@
 open Js_of_ocaml
 
+module Style = Style
+
 let setup_logic () =
   let doc = Dom_html.document in
   let get_el sel = Js.Opt.to_option (doc##querySelector (Js.string sel)) in

@@ -134,6 +134,7 @@ let render_footer () =
 
 let () =
   Dom_html.window##.onload := Dom_html.handler (fun _ ->
+    Logic.Style.inject_main ();
     let body = Document.body G.document in
     El.set_children body [
       render_hero ();
