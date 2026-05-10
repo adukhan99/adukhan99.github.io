@@ -1,6 +1,7 @@
 open Js_of_ocaml
 
 module Style = Style
+module Ui = Ui
 
 let setup_logic () =
   let doc = Dom_html.document in
