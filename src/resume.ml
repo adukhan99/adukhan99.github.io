@@ -80,7 +80,7 @@ let () =
         render_education ();
         render_employment ();
         render_skills ()
-      ];
+      ] ();
       render_footer ()
     ];
     Logic.setup_logic ();

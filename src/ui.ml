@@ -1,5 +1,4 @@
 open Brr
-open Js_of_ocaml
 
 let el name ?(at = []) ?(inner = []) () =
   let e = El.v (Jstr.v name) inner in
@@ -62,7 +61,7 @@ let render_navbar ~links =
   let nav = el "nav" ~at:[cls "navbar"] ~inner:[
     div ~at:[cls "container"] ~inner:[
       logo;
-      ul ~at:[cls "nav-menu"] ~inner:(nav_links @ [theme_switch]);
+      ul ~at:[cls "nav-menu"] ~inner:(nav_links @ [theme_switch]) ();
       button ~at:[cls "hamburger"; ("type", "button"); aria_label "Toggle menu"; ("aria-expanded", "false")]
         ~inner:[span ~at:[cls "bar"] (); span ~at:[cls "bar"] (); span ~at:[cls "bar"] ()] ()
     ] ()
