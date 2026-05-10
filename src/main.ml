@@ -60,16 +60,14 @@ let render_projects () =
   let projects = [
     project_card ~title:"Prokaryotic Nucleoid Associated Proteins and the ProU70 Promoter Sequence"
       ~desc:"University of York, Noy Lab, Amber, Python, R" ~status:"Research in progress" ~card_cls:"project-card--nucleoid" ();
-    project_card ~title:"Tubulin Isotype Variation and Cancer Cell Drug Resistance"
-      ~desc:"University of Michigan, Sept Lab, NAMD, VMD, R" ~status:"Academic research" ~card_cls:"project-card--tubulin" ();
     project_card ~title:"Binding Affinities of Membrane Proximal Actin Probes"
       ~desc:"University of Michigan, Veatch Lab, NAMD, AlphaFold, CHARMM-GUI, R" ~status:"Academic research" ~card_cls:"project-card--actin" ();
-    project_card ~title:"Simulating Hadron Collisions on the QGP Boundary"
-      ~desc:"Personal Project, SMASH, CERN ROOT" ~status:"Independent simulation study" ~card_cls:"project-card--qgp" ();
-    project_card ~link:"https://github.com/adukhan99/slurmgen" ~title:"SLURMGEN - A Type-Checked SBATCH Header Generator"
-      ~desc:"Personal Project, OCaml, Open Source, HPC Utility" ~status:"" ~card_cls:"project-card--slurmgen" ();
+    project_card ~title:"Tubulin Isotype Variation and Cancer Cell Drug Resistance"
+      ~desc:"University of Michigan, Sept Lab, NAMD, VMD, R" ~status:"Academic research" ~card_cls:"project-card--tubulin" ();
     project_card ~link:"https://github.com/adukhan99/orchcaml" ~title:"OrchCaml - An Agent Orchestration Framework"
       ~desc:"Personal Project, OCaml, Open Source, AI" ~status:"" ~card_cls:"project-card--orchcaml" ();
+    project_card ~link:"https://github.com/adukhan99/slurmgen" ~title:"SLURMGEN - A Type-Checked SBATCH Header Generator"
+      ~desc:"Personal Project, OCaml, Open Source, HPC Utility" ~status:"" ~card_cls:"project-card--slurmgen" ();
   ] in
 
   section ~at:[id_ "projects"; cls "project-container container"] ~inner:[
