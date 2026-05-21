@@ -64,8 +64,8 @@ let render_projects () =
       ~desc:"University of Michigan, Veatch Lab, NAMD, AlphaFold, CHARMM-GUI, R" ~status:"Academic research" ~card_cls:"project-card--actin" ();
     project_card ~title:"Tubulin Isotype Variation and Cancer Cell Drug Resistance"
       ~desc:"University of Michigan, Sept Lab, NAMD, VMD, R" ~status:"Academic research" ~card_cls:"project-card--tubulin" ();
-    project_card ~link:"https://github.com/adukhan99/orchcaml" ~title:"OrchCaml - An Agent Orchestration Framework"
-      ~desc:"Personal Project, OCaml, Open Source, AI" ~status:"" ~card_cls:"project-card--orchcaml" ();
+    project_card ~link:"https://github.com/adukhan99/Caravan" ~title:"Caravan - Multi-agent framework"
+      ~desc:"Personal Project, OCaml, Open Source, AI" ~status:"" ~card_cls:"project-card--caravan" ();
     project_card ~link:"https://github.com/adukhan99/slurmgen" ~title:"SLURMGEN - A Type-Checked SBATCH Header Generator"
       ~desc:"Personal Project, OCaml, Open Source, HPC Utility" ~status:"" ~card_cls:"project-card--slurmgen" ();
   ] in

@@ -274,7 +274,6 @@ let main_styles = [
   Css.rule ".card.project-card--nucleoid" ["background", "url(./assets/project/NAP.png) center center/cover"];
   Css.rule ".card.project-card--tubulin" ["background", "url(./assets/project/tubulin.gif) center center/cover"];
   Css.rule ".card.project-card--actin" ["background", "url(./assets/project/MPActs.gif) center center/cover"];
-  Css.rule ".card.project-card--qgp" ["background", "url(./assets/project/QGP.gif) center center/cover"];
   Css.rule ".card.project-card--slurmgen" ["background", "url(./assets/project/slurmgen.jpg) center center/cover"];
   Css.rule ".social-proof" ["margin-bottom", "4rem"];
   Css.rule ".social-icons" [
