@@ -37,7 +37,7 @@ let render_hero () =
   ] in
 
   let header_content = section ~at:[cls "header-container container"] ~inner:[
-    p ~at:[cls "eyebrow"] ~inner:[txt "M.Sc. Physics by Research | University of York"] ();
+    p ~at:[cls "eyebrow"] ~inner:[txt "PhD student in Physics | University of York"] ();
     h1 ~inner:[txt "Alexander Dukhan"] ();
     div ~at:[cls "content-text"] ~inner:[
       h2 ~inner:[txt "Simulating tomorrow's discoveries today."] ();

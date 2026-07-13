@@ -29,7 +29,7 @@ let render_education () =
   section ~at:[cls "section"] ~inner:[
     h2 ~inner:[txt "Education"] ();
     education_item ~degree:"Postgraduate" ~date:"9/2025 - Present" ~school:"University of York, York, UK"
-      ~desc:"M.Sc. in Physics by Research under Dr. Agnes Noy and Dr. Mark Leake." ();
+      ~desc:"PhD student in Physics under Dr. Agnes Noy and Dr. Mark Leake." ();
     education_item ~degree:"Undergraduate" ~date:"8/2022 - 5/2025" ~school:"University of Michigan, Ann Arbor, MI"
       ~desc:"B.Sc. in Biochemistry, completed in three years alongside two years of active research employment." ();
     education_item ~degree:"Secondary" ~date:"9/2018 - 5/2022" ~school:"Royal Oak High School, Royal Oak, MI"
