@@ -1,19 +1,19 @@
 (library
  (name logic)
- (modules logic style ui)
+ (modules logic style ui ascii field scene banner)
  (preprocess
   (pps js_of_ocaml-ppx))
  (libraries js_of_ocaml brr))
 
 (executable
  (name main)
- (modules main physics)
+ (modules main projects)
  (modes js)
  (preprocess
   (pps js_of_ocaml-ppx))
  (libraries js_of_ocaml brr logic)
  (js_of_ocaml
-  (flags --opt=3 --pretty)))
+  (flags --opt=3)))
 
 (executable
  (name resume)
@@ -21,7 +21,6 @@
  (modes js)
  (preprocess
   (pps js_of_ocaml-ppx))
- (libraries js_of_ocaml logic)
+ (libraries js_of_ocaml brr logic)
  (js_of_ocaml
-  (flags --opt=3 --pretty)))
-
+  (flags --opt=3)))

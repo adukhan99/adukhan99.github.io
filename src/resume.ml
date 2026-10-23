@@ -3,9 +3,7 @@ open Js_of_ocaml
 open Logic.Ui
 
 let render_header () =
-  let nav = render_navbar ~links:[
-    ("./index.html", "HOME", "btn-primary", Some "fas fa-arrow-left")
-  ] in
+  let nav = render_navbar ~links:[ ("./index.html", "home"); ("./index.html#projects", "research") ] in
   let header_content = section ~at:[cls "header-container"] ~inner:[
     h1 ~inner:[txt "Alexander Dukhan"] ();
     div ~at:[cls "content-text"] ~inner:[h2 ~inner:[txt "Resume"] ()] ()
@@ -84,5 +82,6 @@ let () =
       render_footer ()
     ];
     Logic.setup_logic ();
+    Logic.Ascii.when_font_ready Logic.Field.start;
     Js._true
   )

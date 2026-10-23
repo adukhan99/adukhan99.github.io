@@ -31,8 +31,8 @@ jobs:
 
       - name: Build JS
         run: |
-          opam exec -- dune build src/main.bc.js
-          opam exec -- dune build src/resume.bc.js
+          opam exec -- dune build --profile release src/main.bc.js
+          opam exec -- dune build --profile release src/resume.bc.js
 
       - name: Prepare Deployment Artifacts
         run: |

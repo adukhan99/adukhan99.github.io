@@ -12,6 +12,8 @@ let cls s = ("class", s)
 let id_ s = ("id", s)
 let href s = ("href", s)
 let aria_label s = ("aria-label", s)
+let hidden = ("aria-hidden", "true")
+let external_ = [ ("target", "_blank"); ("rel", "noopener noreferrer") ]
 
 let div ?at ?inner () = el "div" ?at ?inner ()
 let span ?at ?inner () = el "span" ?at ?inner ()
@@ -30,47 +32,78 @@ let input ?at () = el "input" ?at ()
 let label ?at ?inner () = el "label" ?at ?inner ()
 let article ?at ?inner () = el "article" ?at ?inner ()
 let footer ?at ?inner () = el "footer" ?at ?inner ()
+let pre ?at ?inner () = el "pre" ?at ?inner ()
+let aside ?at ?inner () = el "aside" ?at ?inner ()
+let dl ?at ?inner () = el "dl" ?at ?inner ()
+let dt ?at ?inner () = el "dt" ?at ?inner ()
+let dd ?at ?inner () = el "dd" ?at ?inner ()
 
 (* Component Helpers *)
-let nav_link ~href_url ~label ?(btn_cls = "btn-primary") ?icon () =
-  let content = match icon with
-    | Some i_cls -> [txt (label ^ " "); i ~at:[cls i_cls] ()]
-    | None -> [txt label]
-  in
-  li ~inner:[a ~at:[cls ("nav-link btn " ^ btn_cls); href href_url] ~inner:content ()] ()
+
+(* A Copland-style window: title bar, decorative controls, body. *)
+let window ?(at = []) ?(extra = "") ~title ?(sub = "") inner =
+  section ~at:(cls ("win " ^ extra) :: at) ~inner:[
+    div ~at:[ cls "win-bar" ] ~inner:[
+      span ~at:[ cls "win-title" ] ~inner:[ txt title ] ();
+      span ~at:[ cls "win-sub" ] ~inner:[ txt sub ] ();
+      span ~at:[ cls "win-ctl"; hidden ] ~inner:[ txt "_ \xe2\x96\xa1 \xc3\x97" ] ()
+    ] ();
+    div ~at:[ cls "win-body" ] ~inner ()
+  ] ()
+
+(* Section heading: index, title, a katakana/kanji gloss and a rule. *)
+let section_head ~index ~title ~gloss ?sub () =
+  el "header" ~at:[ cls "section-head" ] ~inner:([
+    p ~at:[ cls "section-index"; hidden ] ~inner:[ txt ("// " ^ index) ] ();
+    h2 ~inner:[ txt title; span ~at:[ cls "gloss"; ("lang", "ja"); hidden ] ~inner:[ txt gloss ] () ] ()
+  ] @ match sub with Some s -> [ p ~at:[ cls "section-sub" ] ~inner:[ txt s ] () ] | None -> []) ()
 
 let render_navbar ~links =
-  let logo = h1 ~at:[id_ "logo"] ~inner:[
-    a ~at:[href "./index.html"] ~inner:[
-      img ~at:[("src", "./assets/logo.png"); ("alt", "Alexander Dukhan logo"); ("loading", "lazy")] ()
+  let brand = a ~at:[ cls "brand"; href "./index.html"; aria_label "Alexander Dukhan, home" ] ~inner:[
+    img ~at:[ ("src", "./assets/logo.png"); ("alt", ""); ("width", "28"); ("height", "28") ] ();
+    span ~at:[ cls "brand-name" ] ~inner:[ txt "a.dukhan" ] ();
+    span ~at:[ cls "brand-sub"; hidden ] ~inner:[ txt "//wired" ] ()
+  ] () in
+  let menu = ul ~at:[ cls "menu" ] ~inner:(List.map (fun (h, l) ->
+    li ~inner:[ a ~at:[ cls "menu-link"; href h ] ~inner:[ txt l ] () ] ()) links
+    @ [ li ~inner:[ a ~at:[ cls "menu-link"; href "#"; ("data-email-link", "true") ] ~inner:[ txt "mail" ] () ] () ]) () in
+  let theme_switch = div ~at:[ cls "theme-switch" ] ~inner:[
+    input ~at:[ ("type", "checkbox"); id_ "switch"; aria_label "Dark theme" ] ();
+    label ~at:[ cls "theme-toggle"; ("for", "switch") ] ~inner:[
+      span ~at:[ cls "t-dark" ] ~inner:[ txt "\xe2\x97\x90"; span ~at:[ cls "t-word" ] ~inner:[ txt " phosphor" ] () ] ();
+      span ~at:[ cls "t-light" ] ~inner:[ txt "\xe2\x97\x91"; span ~at:[ cls "t-word" ] ~inner:[ txt " paper" ] () ] ()
     ] ()
   ] () in
+  let clock = span ~at:[ cls "clock"; ("title", "Local time in York") ] ~inner:[
+    span ~at:[ cls "clock-zone" ] ~inner:[ txt "YRK" ] ();
+    span ~at:[ id_ "clock" ] ~inner:[ txt "--:--:--" ] ()
+  ] () in
+  el "nav" ~at:[ cls "navbar"; aria_label "Main" ] ~inner:[
+    div ~at:[ cls "navbar-inner" ] ~inner:[
+      brand; menu; div ~at:[ cls "navbar-right" ] ~inner:[ theme_switch; clock ] ()
+    ] ()
+  ] ()
 
-  let nav_links = List.map (fun (h, l, b, i) -> nav_link ~href_url:h ~label:l ~btn_cls:b ?icon:i ()) links in
-  
-  let theme_switch = li ~at:[cls "theme-switch-wrap"] ~inner:[
-    div ~at:[cls "theme-switch"] ~inner:[
-      input ~at:[("type", "checkbox"); id_ "switch"; aria_label "Toggle color theme"] ();
-      label ~at:[cls "toggle-icons"; ("for", "switch")] ~inner:[
-        img ~at:[cls "moon"; ("src", "./assets/moon.svg"); ("alt", "Dark mode"); ("loading", "lazy")] ();
-        img ~at:[cls "sun"; ("src", "./assets/sun.svg"); ("alt", "Light mode"); ("loading", "lazy")] ()
-      ] ()
-    ] ()
-  ] () in
-
-  let nav = el "nav" ~at:[cls "navbar"] ~inner:[
-    div ~at:[cls "container"] ~inner:[
-      logo;
-      ul ~at:[cls "nav-menu"] ~inner:(nav_links @ [theme_switch]) ();
-      button ~at:[cls "hamburger"; ("type", "button"); aria_label "Toggle menu"; ("aria-expanded", "false")]
-        ~inner:[span ~at:[cls "bar"] (); span ~at:[cls "bar"] (); span ~at:[cls "bar"] ()] ()
-    ] ()
-  ] () in
-  nav
+(* 88x31-style buttons, the web's oldest badge format. *)
+let badge ?(at = []) ~label:l ?(sub = "") ~style () =
+  let tag = if List.mem_assoc "href" at then "a" else "span" in
+  el tag ~at:(cls ("badge badge--" ^ style) :: at) ~inner:[
+    span ~at:[ cls "badge-main" ] ~inner:[ txt l ] ();
+    span ~at:[ cls "badge-sub" ] ~inner:[ txt sub ] ()
+  ] ()
 
 let render_footer () =
-  footer ~at:[id_ "footer"] ~inner:[
-    div ~at:[cls "container"] ~inner:[
-      a ~at:[("data-email-link", "true"); href "#"] ~inner:[txt "Send me an Email"] ()
+  footer ~at:[ id_ "footer" ] ~inner:[
+    div ~at:[ cls "container footer-inner" ] ~inner:[
+      a ~at:[ cls "footer-mail"; ("data-email-link", "true"); href "#" ] ~inner:[ txt "<< send me an email >>" ] ();
+      div ~at:[ cls "badges" ] ~inner:[
+        badge ~label:"OCAML" ~sub:"powered" ~style:"ocaml" ();
+        badge ~label:"JSOO" ~sub:"compiled" ~style:"plain" ();
+        badge ~label:"NO" ~sub:"cookies" ~style:"invert" ();
+        badge ~label:"ANY" ~sub:"browser" ~style:"plain" ()
+      ] ();
+      p ~at:[ cls "colophon" ] ~inner:[
+        txt "Hand-built in OCaml with js_of_ocaml. The background is a live Gray\xe2\x80\x93Scott reaction\xe2\x80\x93diffusion field carried by an incompressible flow." ] ();
+      p ~at:[ cls "colophon colophon--quiet"; hidden ] ~inner:[ txt "no matter where you go, everyone's connected." ] ()
     ] ()
   ] ()
