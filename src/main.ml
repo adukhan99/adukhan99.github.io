@@ -53,9 +53,9 @@ let render_hero () =
       a ~at:[ href "./resume.html"; cls "btn" ] ~inner:[ txt "Resume \xe2\x86\x92" ] ()
     ] ();
     ul ~at:[ cls "readout" ] ~inner:[
-      li ~inner:[ txt "3 years of active research employment" ] ();
-      li ~inner:[ txt "Wet-lab and computational fluency" ] ();
-      li ~inner:[ txt "HPC and simulation workflow development" ] ()
+      li ~inner:[ txt "5 years of active research experience" ] ();
+      li ~inner:[ txt "HPC and simulation workflow development" ] ();
+      li ~inner:[ txt "Wet-lab and computational fluency" ] ()
     ] ()
   ] in
   let side = window ~extra:"field-win" ~title:"field.sys" ~sub:"live" [
@@ -65,18 +65,16 @@ let render_hero () =
       @ readout "grid" "--" @ readout "fps" "--" @ readout "cover" "--" @ readout "taps" "0") ();
     p ~at:[ cls "hint" ] ~inner:[ txt "move to stir \xc2\xb7 tap to perturb" ] ()
   ] in
-  let vert = p ~at:[ cls "vert"; ("lang", "ja"); hidden ]
-    ~inner:[ txt "\xe3\x83\x97\xe3\x83\xac\xe3\x82\xbc\xe3\x83\xb3\xe3\x83\x88\xe3\x83\xbb\xe3\x83\x87\xe3\x82\xa4\xe3\x80\x80\xe3\x83\x97\xe3\x83\xac\xe3\x82\xbc\xe3\x83\xb3\xe3\x83\x88\xe3\x83\xbb\xe3\x82\xbf\xe3\x82\xa4\xe3\x83\xa0" ] () in
   el "header" ~at:[ id_ "hero" ] ~inner:[
     nav;
-    div ~at:[ cls "container hero-grid" ] ~inner:[ main_win; side; vert ] ()
+    div ~at:[ cls "container hero-grid" ] ~inner:[ main_win; side ] ()
   ] ()
 
 let render_projects () =
   let cards = List.mapi project_card Projects.all in
   let el =
     section ~at:[ id_ "projects"; cls "container" ] ~inner:[
-      section_head ~index:"01" ~title:"Selected Research and Engineering Work" ~gloss:"\xe7\xa0\x94\xe7\xa9\xb6"
+      section_head ~index:"01" ~title:"Selected Research and Engineering Work"
         ~sub:"Personal and academic projects in molecular biophysics, computational chemistry, and simulation tooling." ();
       div ~at:[ cls "project-list" ] ~inner:(List.map fst cards) ()
     ] ()
@@ -85,7 +83,7 @@ let render_projects () =
 
 let render_social () =
   section ~at:[ id_ "links"; cls "container" ] ~inner:[
-    section_head ~index:"02" ~title:"Links" ~gloss:"\xe6\x8e\xa5\xe7\xb6\x9a" ();
+    section_head ~index:"02" ~title:"Links" ();
     div ~at:[ cls "badges badges--links" ] ~inner:[
       badge ~at:([ href "https://github.com/adukhan99"; aria_label "GitHub" ] @ external_) ~label:"GITHUB" ~sub:"adukhan99" ~style:"plain" ();
       badge ~at:([ href "https://www.linkedin.com/in/alexander-dukhan-191574250/"; aria_label "LinkedIn" ] @ external_) ~label:"LINKEDIN" ~sub:"connect" ~style:"invert" ();

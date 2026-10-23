@@ -95,7 +95,6 @@ let paper = [
 let fonts = [
   "--mono", "\"IBM Plex Mono\", ui-monospace, Menlo, Consolas, monospace";
   "--display", "\"VT323\", \"IBM Plex Mono\", monospace";
-  "--jp", "\"DotGothic16\", \"IBM Plex Mono\", sans-serif";
   "--wide", "1120px";
   "--hard", "6px 6px 0 var(--shadow)";
 ]
@@ -280,12 +279,6 @@ let home = [
   Css.rule ".stats dd" [ "font-variant-numeric", "tabular-nums"; "overflow-wrap", "anywhere" ];
   Css.rule ".hint" [ "margin-top", "16px"; "color", "var(--accent)"; "text-transform", "uppercase"; "letter-spacing", "0.14em"; "font-size", "10px" ];
   Css.rule ".hint::before" [ "content", "\"\\25B8  \"" ];
-  Css.rule ".vert" [
-    "position", "absolute"; "top", "8px"; "right", "-34px";
-    "writing-mode", "vertical-rl";
-    "font-family", "var(--jp)"; "font-size", "13px"; "letter-spacing", "0.35em";
-    "color", "var(--accent)"; "opacity", "0.8";
-  ];
 
   Css.rule ".section-head" [
     "margin", "96px 0 28px";
@@ -301,7 +294,6 @@ let home = [
     "font-size", "clamp(32px, 5vw, 52px)"; "line-height", "1";
     "display", "flex"; "flex-wrap", "wrap"; "align-items", "baseline"; "gap", "6px 16px";
   ];
-  Css.rule ".gloss" [ "font-family", "var(--jp)"; "font-size", "0.42em"; "color", "var(--accent)"; "letter-spacing", "0.3em" ];
   Css.rule ".section-sub" [ "margin-top", "10px"; "max-width", "70ch"; "color", "var(--muted)"; "font-size", "14px" ];
 
   Css.rule ".project-list" [ "display", "grid"; "gap", "40px" ];
@@ -367,14 +359,12 @@ let home = [
 
   Css.rule "#links" [ "margin-bottom", "96px" ];
 
-  Css.rule "#footer" [ "background", "var(--bar)"; "border-top", "1px solid var(--line)"; "padding", "40px 0 48px" ];
-  Css.rule ".footer-inner" [ "display", "flex"; "flex-direction", "column"; "align-items", "center"; "gap", "18px"; "text-align", "center" ];
-  Css.rule ".footer-mail" [ "color", "var(--accent)"; "letter-spacing", "0.12em"; "font-size", "14px" ];
+  Css.rule "#footer" [ "background", "var(--bar)"; "border-top", "1px solid var(--line)"; "padding", "18px 0 20px" ];
+  Css.rule ".footer-inner" [ "display", "flex"; "flex-direction", "column"; "align-items", "center"; "gap", "10px"; "text-align", "center" ];
+  Css.rule ".footer-mail" [ "color", "var(--accent)"; "letter-spacing", "0.12em"; "font-size", "13px" ];
   Css.rule ".footer-mail:hover" [ "background", "var(--accent)"; "color", "var(--on-accent)" ];
-  Css.rule ".colophon" [ "max-width", "62ch"; "font-size", "11px"; "color", "var(--muted)" ];
-  Css.rule ".colophon--quiet" [ "font-style", "italic"; "opacity", "0.6" ];
+  Css.rule ".colophon" [ "font-size", "11px"; "color", "var(--muted)"; "font-style", "italic"; "opacity", "0.7" ];
 
-  Css.media "max-width: 1240px" [ ".vert", [ "display", "none" ] ];
   Css.media "max-width: 900px" [
     ".hero-grid", [ "grid-template-columns", "1fr" ];
     ".field-win", [ "position", "static" ];

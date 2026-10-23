@@ -51,11 +51,11 @@ let window ?(at = []) ?(extra = "") ~title ?(sub = "") inner =
     div ~at:[ cls "win-body" ] ~inner ()
   ] ()
 
-(* Section heading: index, title, a katakana/kanji gloss and a rule. *)
-let section_head ~index ~title ~gloss ?sub () =
+(* Section heading: index, title and an optional subtitle. *)
+let section_head ~index ~title ?sub () =
   el "header" ~at:[ cls "section-head" ] ~inner:([
     p ~at:[ cls "section-index"; hidden ] ~inner:[ txt ("// " ^ index) ] ();
-    h2 ~inner:[ txt title; span ~at:[ cls "gloss"; ("lang", "ja"); hidden ] ~inner:[ txt gloss ] () ] ()
+    h2 ~inner:[ txt title ] ()
   ] @ match sub with Some s -> [ p ~at:[ cls "section-sub" ] ~inner:[ txt s ] () ] | None -> []) ()
 
 let render_navbar ~links =
@@ -102,8 +102,6 @@ let render_footer () =
         badge ~label:"NO" ~sub:"cookies" ~style:"invert" ();
         badge ~label:"ANY" ~sub:"browser" ~style:"plain" ()
       ] ();
-      p ~at:[ cls "colophon" ] ~inner:[
-        txt "Hand-built in OCaml with js_of_ocaml. The background is a live Gray\xe2\x80\x93Scott reaction\xe2\x80\x93diffusion field carried by an incompressible flow." ] ();
-      p ~at:[ cls "colophon colophon--quiet"; hidden ] ~inner:[ txt "no matter where you go, everyone's connected." ] ()
+      p ~at:[ cls "colophon"; hidden ] ~inner:[ txt "no matter where you go, everyone's connected." ] ()
     ] ()
   ] ()
