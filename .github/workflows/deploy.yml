@@ -27,7 +27,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          opam install dune js_of_ocaml js_of_ocaml-ppx brr --yes
+          # Pinned to the versions the site was last verified against.
+          opam install dune.3.24.2 js_of_ocaml.6.4.1 js_of_ocaml-ppx.6.4.1 brr.0.0.8 --yes
 
       - name: Build JS
         run: |

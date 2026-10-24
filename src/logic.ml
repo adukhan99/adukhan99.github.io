@@ -14,7 +14,10 @@ let all sel f =
   let ns = doc##querySelectorAll (string sel) in
   for i = 0 to ns##.length - 1 do Opt.iter (ns##item i) f done
 
-let every ms f = ignore (Dom_html.window##setInterval (wrap_callback f) (float_of_int ms))
+(* Timers go through Brr, whose signatures are stable across js_of_ocaml
+   releases (Dom_html's changed in 6.0). *)
+let every ms f = ignore (Brr.G.set_interval ~ms f)
+let after ms f = ignore (Brr.G.set_timeout ~ms f)
 
 (* Theme: phosphor (dark) by default, paper (light) on request. *)
 let setup_theme () =
@@ -59,10 +62,11 @@ let setup_clock () =
   match get_el "#clock" with
   | None -> ()
   | Some c ->
-    let opts = Unsafe.obj [| ("timeZone", Unsafe.inject (string "Europe/London")); ("hour12", Unsafe.inject _false) |] in
+    let opts = Jv.obj [| ("timeZone", Jv.of_string "Europe/London"); ("hour12", Jv.false') |] in
     let tick () =
-      let d = new%js date_now in
-      c##.textContent := some (Unsafe.meth_call d "toLocaleTimeString" [| Unsafe.inject (string "en-GB"); Unsafe.inject opts |])
+      let d = Jv.new' (Jv.get Jv.global "Date") [||] in
+      let t = Jv.to_string (Jv.call d "toLocaleTimeString" [| Jv.of_string "en-GB"; opts |]) in
+      c##.textContent := some (string t)
     in
     tick ();
     every 1000 tick
@@ -81,10 +85,10 @@ let setup_typing () =
         if !n <= String.length full then begin
           e##.textContent := some (string (String.sub full 0 !n));
           incr n;
-          ignore (Dom_html.window##setTimeout (wrap_callback step) (float_of_int (28 + Random.int 50)))
+          after (28 + Random.int 50) step
         end
       in
-      ignore (Dom_html.window##setTimeout (wrap_callback step) 600.)
+      after 600 step
     end)
 
 (* Live numbers from the background simulation. *)
